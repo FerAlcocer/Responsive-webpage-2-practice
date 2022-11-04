@@ -1,7 +1,9 @@
 :root {
   --clr-text: #3d3d3d;
   --clr-primary: #067e0a;
+  --clr-primary-dark: #125814;
   --clr-accent: #613b6b;
+  --clr-accent-dark: #44264d;
 
   --ff-title: Comic Sans MS, Comic Sans, cursive;
   --ff-serif: "Crimson Text", serif;
@@ -32,6 +34,10 @@ img {
 
 section {
   padding: 3em 1em;
+}
+
+.mb-0 {
+  margin-bottom: 0;
 }
 
 /* Typography */
@@ -80,6 +86,11 @@ p {
   text-decoration: none;
   color: black;
 }
+
+.about-us__intro h2 {
+  font-size: 2rem;
+}
+
 /* Navigation */
 
 header {
@@ -112,7 +123,7 @@ nav a:focus {
 .btn-group {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
+  justify-content: center;
   flex-direction: column;
 }
 
@@ -122,6 +133,7 @@ nav a:focus {
   text-decoration: none;
   display: inline-block;
   margin: 0.5em 0;
+  border-radius: 0.35em;
 }
 
 /* .btn + .btn {
@@ -131,14 +143,28 @@ nav a:focus {
 .btn-primary {
   background: var(--clr-primary);
 }
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--clr-primary-dark);
+}
+
+.btn-accent {
+  background: var(--clr-accent);
+}
+
+.btn-accent:hover,
+.btn-accent:focus {
+  background: var(--clr-accent-dark);
+}
 /* Homepage Styles */
 
 .hero {
   background-color: #333;
-  background-image: url(img/hippie-chick-monkey.jpg);
+  background-image: url(img/ensalada2.jpg);
   background-blend-mode: multiply;
   background-attachment: fixed;
-  background-size: 200%;
+  background-size: cover;
   color: white;
   text-align: center;
   padding: 15vh 1em;
@@ -153,12 +179,160 @@ nav a:focus {
 }
 
 .about-us__intro {
-  background-color: #613b6b;
+  background-color: rgb(97, 59, 107);
   background-image: url(Img/receta-de-granola-con-avena.jpg);
+  background-size: cover;
   background-blend-mode: multiply;
   padding: 3em 1em 1em;
 }
 
 .about-us__body {
   padding: 1em 1em 3em;
+}
+
+.order-online {
+  background: #f0f0f0;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.product {
+  /* background: #f0f0f0; */
+  border-radius: 1em;
+  /* border: 1px solid red; */
+  overflow: hidden;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+}
+
+.product:last-of-type {
+  margin-bottom: 2em;
+}
+
+.product__content {
+  padding: 1.5em;
+}
+
+.product__title {
+  color: var(--clr-primary);
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
+footer {
+  background-color: var(--clr-accent-dark);
+  padding: 3em 1em;
+  color: white;
+  display: flex;
+  justify-content: center;
+  gap: 5em;
+  margin-top: 3em;
+}
+
+footer a {
+  color: inherit;
+}
+
+.footer-nav,
+.footer-social {
+  list-style: none;
+}
+
+.footer-nav a {
+  padding: 0.75em;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.social-link {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.social-icon {
+  width: 50px;
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (min-width: 750px) {
+  section {
+    padding: 6em 1em;
+  }
+
+  .btn-group {
+    margin-top: 1em;
+    flex-direction: row;
+  }
+
+  .btn + .btn {
+    margin-left: 0.5em;
+  }
+
+  .about-us {
+    flex-direction: row;
+  }
+
+  .about-us__intro,
+  .about-us__body {
+    flex: 0 1 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 4em 2em;
+    justify-content: center;
+  }
+
+  .about-us__intro {
+    text-align: right;
+  }
+
+  .about-us__intro > * {
+    max-width: 27rem;
+    margin-left: auto;
+  }
+
+  .about-us__body {
+    text-align: left;
+  }
+
+  .about-us__body > * {
+    max-width: 27rem;
+    margin-right: auto;
+  }
+
+  .order-online > * {
+    max-width: 70ch;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+  }
+  .order-online {
+    display: grid;
+    justify-content: center;
+  }
+
+  .products {
+    flex-direction: row;
+    max-width: 1200px;
+    padding: 0 5em;
+  }
+
+  .product {
+    margin: 0;
+    flex: 0 1 33%;
+  }
+
+  .product + .product {
+    margin-left: 1em;
+  }
+
+  .product:last-of-type {
+    margin-bottom: 0;
+  }
 }
